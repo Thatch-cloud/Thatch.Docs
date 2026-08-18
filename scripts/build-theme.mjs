@@ -10,7 +10,7 @@
 // and warn. The site renders correctly, just not in brand colours.
 
 import { createRequire } from 'node:module'
-import { cp, mkdir, readdir, rename, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, rename, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as esbuild from 'esbuild'
@@ -20,13 +20,11 @@ const require = createRequire(import.meta.url)
 
 const OUT_CSS = path.join(root, 'generated', 'thatch.css')
 const OUT_FONTS = path.join(root, 'src', 'thatch-fonts')
-const OUT_FAVICON = path.join(root, 'theme', 'favicon.svg')
 const ENTRY = path.join(root, 'styles', 'entry.generated.css')
 
 const generated = [
   path.join(root, 'generated'),
   OUT_FONTS,
-  OUT_FAVICON,
   ENTRY,
 ]
 
@@ -102,11 +100,6 @@ async function main() {
     if (!/[.](woff2?|ttf)$/.test(name)) continue
     await rename(path.join(root, 'generated', name), path.join(OUT_FONTS, name))
     fontCount += 1
-  }
-
-  if (branded) {
-    await mkdir(path.dirname(OUT_FAVICON), { recursive: true })
-    await cp(require.resolve('@thatch-cloud/design-system/assets/thatch-logo.svg'), OUT_FAVICON)
   }
 
   await rm(ENTRY, { force: true })

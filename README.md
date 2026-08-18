@@ -52,6 +52,7 @@ src/CNAME            custom domain, published verbatim to the site root
 styles/mdbook.css    maps Thatch semantic tokens onto mdBook's chrome variables
 styles/fallback.css  stand-in tokens for builds without design system access
 theme/head.hbs       bridges mdBook's theme class to the design system's data-theme
+theme/favicon.svg    the brand mark, cropped square (see Known wrinkles)
 scripts/             theme build and link check
 generated/           build output (git-ignored)
 ```
@@ -86,7 +87,9 @@ publishes to GitHub Pages. Pull requests get a build check
   silently). That is why CI runs `npm install`, which resolves it fresh against the
   Actions token. Run `npm install` once from an authenticated machine, commit the
   resulting lockfile, and CI can move to `npm ci`.
-- **The favicon is the design system's `thatch-logo.svg`.** If that asset is a wordmark
-  rather than a mark, it will be illegible at 16px and should be replaced with a
-  square glyph — override it by committing `theme/favicon.svg` and dropping the copy
-  step in `scripts/build-theme.mjs`.
+- **`theme/favicon.svg` is a hand-cropped copy of the brand mark.** The design system
+  only exports the full lockup (`thatch-logo.svg`, 310x52), which is an illegible
+  smudge at 16px, so the favicon holds just the mark paths squared around their
+  measured bounds. It is the one piece of brand geometry duplicated in this repo, and
+  it will not follow a logo change. Have the design system export a square mark and
+  this file can go back to being generated.

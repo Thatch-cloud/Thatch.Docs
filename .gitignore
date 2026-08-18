@@ -5,7 +5,6 @@ book/
 # from @thatch-cloud/design-system on every build.
 generated/
 src/thatch-fonts/
-theme/favicon.svg
 styles/entry.generated.css
 
 node_modules/
