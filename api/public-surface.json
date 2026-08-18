@@ -1,0 +1,30 @@
+{
+  "$comment": [
+    "Which control-plane operations may be published on docs.thatch.cloud.",
+    "",
+    "scripts/filter-openapi.mjs reads this, and refuses to run if the spec it is",
+    "given contains an operationId listed in neither array. That is deliberate:",
+    "a new endpoint added upstream cannot reach a public website just because",
+    "nobody remembered to classify it. If in doubt, it is internal.",
+    "",
+    "Both lists are empty because the contract this is meant to filter does not",
+    "exist yet. The customer-facing surface is the OpenAI-compatible serving API",
+    "on the Administration layer (/v1/chat/completions, /v1/models, /v1/usage,",
+    "gated by a thatch_sk_ API key). The only artifact the control plane emits",
+    "today is portal.openapi.json, which is the Portal SPA's session-token",
+    "contract for tenant deployments — a different surface and a different",
+    "audience. Fill these in once a serving-surface artifact is emitted.",
+    "",
+    "'servers' overrides the servers block in the source document: the portal",
+    "contract declares a same-origin proxy URL, which is meaningless to someone",
+    "reading these docs and calling the API from their own machine."
+  ],
+  "servers": [
+    {
+      "url": "https://api.thatch.cloud",
+      "description": "Production"
+    }
+  ],
+  "public": [],
+  "internal": []
+}

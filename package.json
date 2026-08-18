@@ -11,6 +11,9 @@
   "scripts": {
     "theme": "node scripts/build-theme.mjs",
     "theme:ci": "node scripts/build-theme.mjs --require-brand",
+    "api:filter": "node scripts/filter-openapi.mjs",
+    "api:reference": "node scripts/generate-api-reference.mjs",
+    "api:check": "node scripts/generate-api-reference.mjs --check",
     "build": "npm run theme && mdbook build",
     "serve": "npm run theme && mdbook serve --open",
     "clean": "node scripts/build-theme.mjs --clean"

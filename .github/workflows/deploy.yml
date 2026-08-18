@@ -56,6 +56,12 @@ jobs:
       - name: Build theme from the design system
         run: npm run theme:ci
 
+      # The endpoint reference is generated from the vendored contract and
+      # committed. This fails if someone edited it by hand, or vendored a new
+      # contract without regenerating.
+      - name: Check the endpoint reference matches the contract
+        run: npm run api:check
+
       - name: Build book
         run: mdbook build
 

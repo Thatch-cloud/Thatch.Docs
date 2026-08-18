@@ -11,7 +11,6 @@
 # API & SDKs
 
 - [API overview](api/overview.md)
-- [Jobs](api/jobs.md)
 - [Errors](api/errors.md)
 - [Rate limits & quotas](api/limits.md)
 - [SDKs](api/sdks.md)

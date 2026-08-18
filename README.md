@@ -53,7 +53,8 @@ styles/mdbook.css    maps Thatch semantic tokens onto mdBook's chrome variables
 styles/fallback.css  stand-in tokens for builds without design system access
 theme/head.hbs       bridges mdBook's theme class to the design system's data-theme
 theme/favicon.svg    the brand mark, cropped square (see Known wrinkles)
-scripts/             theme build and link check
+api/                 the filtered public contract, and which operations may be published
+scripts/             theme build, API reference generation, link check
 generated/           build output (git-ignored)
 ```
 
@@ -65,6 +66,39 @@ generated/           build output (git-ignored)
    the build.
 3. Cross-link with **relative `.md` paths** (`../api/errors.md`); mdBook rewrites them
    to `.html` and `scripts/check-links.mjs` verifies they resolve.
+
+### Endpoint reference
+
+The per-endpoint API reference is **generated, not written**. Two steps, because
+this repository is public and the control plane's is not:
+
+```bash
+# 1. From a machine with a control-plane checkout. Reads api/public-surface.json
+#    and writes api/public.openapi.json — the filtered contract, safe to commit.
+npm run api:filter -- /path/to/Thatch.Server/services/administration/docs/api/portal.openapi.json
+
+# 2. Render it into src/api/reference/, then list the new pages in src/SUMMARY.md.
+npm run api:reference
+```
+
+Filtering happens at step 1, not at render time, because vendoring the full
+contract here would publish every operation in it no matter what the site draws.
+`api/public-surface.json` classifies each operation as public or internal and the
+filter **fails on anything unclassified** — an endpoint added upstream cannot
+reach the public site because nobody remembered to classify it.
+
+Both the filtered contract and the generated markdown are committed, and CI runs
+`npm run api:check` to fail the build if they disagree. Do not hand-edit anything
+under `src/api/reference/`.
+
+**This is not wired to anything yet.** The only contract the control plane emits
+is `portal.openapi.json`, which is the Portal SPA's session-token surface for
+tenant deployments — a different audience from the customers these docs serve.
+The customer-facing surface is the OpenAI-compatible serving API
+(`/v1/chat/completions`, `/v1/models`, `/v1/usage`, gated by a `thatch_sk_` API
+key), and nothing emits a contract for it. The server-side fix is a sibling to
+`emit_portal_openapi.rs` covering the serving routes; the moment that artifact
+exists, the two commands above produce the reference.
 
 ### Styling
 

@@ -27,6 +27,10 @@ A unit of submitted work, with requirements attached (what it needs to run on). 
 scheduler decides placement; the job then carries a state and, on completion, an exit
 result.
 
+Jobs are how the fabric schedules work internally. You do not create them directly:
+you call the [API](../api/overview.md), and the control plane turns that into placed
+work on a node that satisfies the requirements.
+
 ## Region and residency
 
 Work is pinned to a region so data stays inside the jurisdiction you selected. See
