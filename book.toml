@@ -1,0 +1,29 @@
+[book]
+title = "Thatch Documentation"
+description = "Public documentation for Thatch — the API, SDKs, accounts and billing, and support material."
+authors = ["Thatch"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+site-url = "/"
+git-repository-url = "https://github.com/Thatch-cloud/Thatch.Docs"
+git-repository-icon = "fab-github"
+edit-url-template = "https://github.com/Thatch-cloud/Thatch.Docs/edit/main/{path}"
+default-theme = "light"
+preferred-dark-theme = "navy"
+no-section-label = false
+additional-css = ["generated/thatch.css"]
+
+[output.html.search]
+enable = true
+limit-results = 20
+use-boolean-and = true
+
+[output.html.fold]
+enable = true
+level = 1

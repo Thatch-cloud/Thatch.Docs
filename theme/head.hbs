@@ -1,0 +1,40 @@
+{{!--
+  Thatch: mirror mdBook's theme class onto html[data-theme].
+
+  mdBook themes its chrome with a class on <html> (light/rust/navy/coal/ayu);
+  the design system switches its token palette on a data-theme attribute.
+  This bridges the two, so picking a theme in the mdBook menu also moves the
+  Thatch tokens that styles/mdbook.css maps onto.
+
+  It lives in head.hbs rather than in additional-js because additional-js is
+  loaded at the end of <body>: the attribute would land after first paint and
+  a light-theme reader would see a flash of the dark palette. This partial is
+  injected above the script that applies the theme class, so the observer is
+  already watching when the class arrives and the attribute is set in the same
+  microtask checkpoint — before anything is painted.
+--}}
+<script>
+  (function () {
+    var html = document.documentElement;
+    var LIGHT_THEMES = ["light", "rust"];
+
+    function sync() {
+      var mode = "dark";
+      for (var i = 0; i < LIGHT_THEMES.length; i++) {
+        if (html.classList.contains(LIGHT_THEMES[i])) {
+          mode = "light";
+          break;
+        }
+      }
+      if (html.getAttribute("data-theme") !== mode) {
+        html.setAttribute("data-theme", mode);
+      }
+    }
+
+    sync();
+    new MutationObserver(sync).observe(html, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  })();
+</script>

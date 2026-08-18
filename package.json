@@ -1,0 +1,24 @@
+{
+  "name": "thatch-docs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public documentation for Thatch — mdBook source and the design-system theme build.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "theme": "node scripts/build-theme.mjs",
+    "theme:ci": "node scripts/build-theme.mjs --require-brand",
+    "build": "npm run theme && mdbook build",
+    "serve": "npm run theme && mdbook serve --open",
+    "clean": "node scripts/build-theme.mjs --clean"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  },
+  "optionalDependencies": {
+    "@thatch-cloud/design-system": "^1.0.0"
+  }
+}

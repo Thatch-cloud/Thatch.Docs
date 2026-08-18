@@ -1,0 +1,67 @@
+/* =====================================================================
+   FALLBACK TOKENS — used only when @thatch-cloud/design-system is absent
+   ---------------------------------------------------------------------
+   The design system is a private package. Anyone can still clone and build
+   these docs; without registry access, scripts/build-theme.mjs substitutes
+   this file so the site renders and the text is readable.
+
+   The palette here is deliberately NOT the Thatch palette. A missing
+   package should look obviously unbranded rather than plausibly close —
+   an almost-right cyan would ship to production unnoticed.
+
+   Mirrors the design system's contract: bare :root is dark, and
+   [data-theme="light"] overrides it, so source order below matters.
+   ===================================================================== */
+
+:root {
+  --font-display: ui-sans-serif, system-ui, sans-serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --radius-control: 6px;
+  --radius-item: 8px;
+  --radius-surface: 12px;
+
+  --color-bg: #14171a;
+  --color-bg-alt: #101315;
+  --color-surface: #1c2126;
+  --color-surface-raised: #232930;
+  --color-heading: #f2f5f7;
+  --color-text: #ccd3d9;
+  --color-muted: #7f8a94;
+  --color-muted-strong: #a8b2bb;
+  --color-accent: #7c9cbf;
+  --color-accent-strong: #9db6d1;
+  --color-accent-soft: #2a3642;
+  --color-accent-contrast: #0d1114;
+  --color-line: #2b3238;
+  --color-line-strong: #3c454d;
+  --success: #4ea86a;
+  --warning: #c99340;
+  --danger: #d06a6a;
+  --info: #6f95c4;
+}
+
+[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f5f6;
+  --color-surface: #f0f2f4;
+  --color-surface-raised: #e7eaed;
+  --color-heading: #14181c;
+  --color-text: #2f3740;
+  --color-muted: #6b757e;
+  --color-muted-strong: #4a545d;
+  --color-accent: #3d6288;
+  --color-accent-strong: #2c4c6d;
+  --color-accent-soft: #dce6f0;
+  --color-accent-contrast: #ffffff;
+  --color-line: #d8dde1;
+  --color-line-strong: #b9c1c8;
+  --success: #1c7a3e;
+  --warning: #8a5a0b;
+  --danger: #b03535;
+  --info: #2a5ea8;
+}

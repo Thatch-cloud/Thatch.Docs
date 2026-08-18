@@ -1,0 +1,140 @@
+/* =====================================================================
+   THATCH DESIGN SYSTEM -> mdBook CHROME
+   ---------------------------------------------------------------------
+   mdBook themes its chrome with its own custom properties, declared per
+   theme class (.light/.rust/.navy/.coal/.ayu) on <html>. This file points
+   those at Thatch semantic tokens.
+
+   One mapping covers every mdBook theme because the token values beneath
+   it switch mode themselves: theme-sync.js mirrors mdBook's theme class
+   onto html[data-theme], which is what semantic.css keys off. Add a mode
+   there, not here.
+
+   Read semantic tokens only — never --brand-* and never a hex. That is
+   the design system's one rule, and it is what makes a rebrand a version
+   bump instead of a sweep through this file.
+   ===================================================================== */
+
+.light,
+.rust,
+.navy,
+.coal,
+.ayu,
+html:not(.js) {
+  --bg: var(--color-bg);
+  --fg: var(--color-text);
+
+  --sidebar-bg: var(--color-bg-alt);
+  --sidebar-fg: var(--color-muted-strong);
+  --sidebar-non-existant: var(--color-muted);
+  --sidebar-active: var(--color-accent);
+  --sidebar-spacer: var(--color-line);
+  --sidebar-header-border-color: var(--color-line-strong);
+
+  --scrollbar: var(--color-muted);
+  --icons: var(--color-muted);
+  --icons-hover: var(--color-heading);
+
+  --links: var(--color-accent);
+  --inline-code-color: var(--color-accent-strong);
+
+  --theme-popup-bg: var(--color-surface-raised);
+  --theme-popup-border: var(--color-line-strong);
+  --theme-hover: var(--color-surface);
+
+  --quote-bg: var(--color-surface);
+  --quote-border: var(--color-line);
+  --warning-border: var(--warning);
+
+  --table-border-color: var(--color-line);
+  --table-header-bg: var(--color-surface-raised);
+  --table-alternate-bg: var(--color-bg-alt);
+
+  --searchbar-border-color: var(--color-line-strong);
+  --searchbar-bg: var(--color-surface);
+  --searchbar-fg: var(--color-text);
+  --searchbar-shadow-color: var(--color-accent);
+  --searchresults-header-fg: var(--color-muted-strong);
+  --searchresults-border-color: var(--color-line);
+  --searchresults-li-bg: var(--color-surface);
+  --search-mark-bg: var(--color-accent-soft);
+  --footnote-highlight: var(--color-accent-soft);
+
+  /* GitHub-style alerts (> [!NOTE] and friends) */
+  --blockquote-note-color: var(--info);
+  --blockquote-tip-color: var(--success);
+  --blockquote-important-color: var(--color-accent);
+  --blockquote-warning-color: var(--warning);
+  --blockquote-caution-color: var(--danger);
+}
+
+/* ---- Typography ---------------------------------------------------- */
+/* mdBook hard-codes Open Sans on body and reads --mono-font for code. */
+
+:root {
+  --mono-font: var(--font-mono);
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.menu-title,
+.sidebar .sidebar-header {
+  font-family: var(--font-display);
+  color: var(--color-heading);
+}
+
+/* ---- Chrome ---------------------------------------------------------
+   Small adjustments so the page reads as Thatch rather than as default
+   mdBook. Everything here is expressed in tokens. */
+
+.menu-bar,
+.sidebar {
+  border-inline-end: 1px solid var(--color-line);
+}
+
+.menu-bar {
+  border-inline-end: 0;
+  border-block-end: 1px solid var(--color-line);
+}
+
+.content code:not(pre code) {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  padding: 0.1em 0.35em;
+}
+
+.content pre > code {
+  border-radius: var(--radius-surface);
+}
+
+.content table th {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-heading);
+}
+
+.content blockquote {
+  border-inline-start-color: var(--color-accent);
+  border-radius: var(--radius-item);
+}
+
+#searchbar:focus,
+.theme-popup li:hover {
+  outline-color: var(--color-accent);
+}
+
+/* Sidebar chapter numbers are decoration, not content — mute them so the
+   titles carry the hierarchy. */
+.chapter li > a .spacer,
+.chapter li strong {
+  color: var(--color-muted);
+}
