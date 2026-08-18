@@ -86,7 +86,10 @@ async function main() {
     // Not src/fonts: mdBook writes its own fonts/ directory there.
     assetNames: '[name]-[hash]',
     publicPath: '../thatch-fonts',
-    loader: { '.woff2': 'file', '.woff': 'file', '.ttf': 'file' },
+    // brand.thatch.css points --brand-logo-url at the logo. Inlined rather than
+    // emitted as a file so it needs no second asset directory alongside the
+    // fonts; a brand mark is small enough that the base64 cost is noise.
+    loader: { '.woff2': 'file', '.woff': 'file', '.ttf': 'file', '.svg': 'dataurl' },
     minify: true,
     logLevel: 'warning',
   })
