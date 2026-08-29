@@ -1,0 +1,87 @@
+name: Epic
+description: A body of work delivering part of a theme. Has sub-issues; tracked on Thatch - Programme.
+title: "Epic: "
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Epics are the middle layer: too big for one sprint, small enough to have a single
+        coherent outcome. File it as a **sub-issue of its theme** once created
+        (Issue page → Relationships → Add parent), then it appears on **Thatch - Programme**.
+  - type: input
+    id: theme
+    attributes:
+      label: Parent theme
+      description: The `Theme:` issue this belongs under. Set the real parent link after filing.
+      placeholder: "Thatch-cloud/Thatch.Server#1874 — Theme: Code health"
+    validations:
+      required: true
+  - type: textarea
+    id: plain
+    attributes:
+      label: In plain terms
+      description: |
+        The problem, the fix, and why it matters — in language a non-specialist can act on.
+        House style: this goes at the top as a blockquote and is not optional.
+      value: |
+        > **The problem:**
+        > **The fix:**
+        > **Why it matters:**
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What is true when this is done that is not true now? Be specific enough to disagree with.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Technical context
+      description: The measured state of the code today. Cite files and line numbers.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Pinned evidence
+      description: |
+        Every claim above that could go stale, with the command that produced it and the date.
+        A written assertion of coverage is not coverage.
+      value: |
+        | Claim | Command | Result | Date |
+        |---|---|---|---|
+        |  |  |  |  |
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      value: |
+        - In scope:
+        - Out of scope:
+    validations:
+      required: true
+  - type: textarea
+    id: breakdown
+    attributes:
+      label: Work breakdown
+      description: The sub-issues, with the dependency order. Link them as real sub-issues after filing.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance for the epic
+      description: Machine-checkable where possible. Say what command proves it.
+    validations:
+      required: true
+  - type: textarea
+    id: ratchet
+    attributes:
+      label: Ratchet
+      description: What automated check stops the cleaned-up state from silently regressing? Say so explicitly if none.

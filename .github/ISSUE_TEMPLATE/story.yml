@@ -1,0 +1,63 @@
+name: Story
+description: A change small enough to finish inside one sprint. Goes on this repo's delivery board.
+title: ""
+labels: ["story"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Stories are the bottom layer — the things that get a sprint, points and an assignee.
+
+        If it cannot be finished inside one two-week sprint, it is an **epic**, not a story.
+        If the deliverable is an answer rather than a change, it is a **spike**.
+  - type: input
+    id: parent
+    attributes:
+      label: Parent epic
+      description: Set the real sub-issue link after filing. Leave blank only for genuinely standalone work.
+      placeholder: "#1833"
+  - type: textarea
+    id: outcome
+    attributes:
+      label: The change
+      description: What is different afterwards, from the point of view of whoever notices.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Where in the code
+      description: Files and line numbers as they are today. Say what you actually looked at.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: |
+        Machine-checkable wherever it can be. Name the command and the expected output, not
+        "works correctly". If a test must go red first, say so.
+      value: |
+        - [ ]
+        - [ ] Verified by: `` → expected:
+    validations:
+      required: true
+  - type: dropdown
+    id: sizing
+    attributes:
+      label: First-guess size
+      description: A starting point for planning poker, not a commitment. Refined in sprint planning.
+      options:
+        - "1 — trivial, mechanical"
+        - "2 — small, well understood"
+        - "3 — a day's work with known unknowns"
+        - "5 — needs design thought"
+        - "8 — probably wants splitting"
+        - "? — cannot size; needs a spike first"
+    validations:
+      required: true
+  - type: textarea
+    id: blocked
+    attributes:
+      label: Depends on
+      description: Issues that must land first, and why — shared file, logical dependency, or a decision.

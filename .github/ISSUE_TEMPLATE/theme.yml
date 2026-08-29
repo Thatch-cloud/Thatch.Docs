@@ -1,0 +1,64 @@
+name: Theme
+description: A multi-quarter outcome that sits in exactly one horizon. A container, not work.
+title: "Theme: "
+labels: ["theme"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Themes are the top layer. They live on **Thatch - Horizons** and **Thatch - Programme**,
+        and epics are filed as sub-issues of them.
+
+        Only file one if no existing theme covers the work — there are deliberately few.
+        Check the open `theme` issues first.
+  - type: input
+    id: scope
+    attributes:
+      label: The theme in one sentence
+      description: What outcome does this pursue? Not what work it contains.
+      placeholder: Customers fine-tune their own models on our hardware.
+    validations:
+      required: true
+  - type: dropdown
+    id: horizon
+    attributes:
+      label: Horizon
+      options:
+        - H1 Run — defend and extend what is live and earning today
+        - H2 Build — emerging capability, roughly 6 to 18 months
+        - H3 Explore — options and bets, 18 months and beyond
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      options:
+        - High — we know how to do this
+        - Medium — known unknowns, scoped
+        - Low — unknown unknowns; this is a bet
+    validations:
+      required: true
+  - type: textarea
+    id: contains
+    attributes:
+      label: What belongs under this theme
+      description: Enough detail that someone filing an epic can tell whether it lands here or elsewhere.
+    validations:
+      required: true
+  - type: textarea
+    id: not
+    attributes:
+      label: What does NOT belong here
+      description: Name the adjacent themes this is most likely to be confused with, and why work goes there instead.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: What would retire this theme
+      description: |
+        A theme closes when it is retired or graduated to another horizon — never merely because
+        its current epics are done. Say what that would look like.
+    validations:
+      required: true
