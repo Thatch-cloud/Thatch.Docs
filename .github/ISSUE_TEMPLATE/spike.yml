@@ -1,0 +1,61 @@
+name: Spike
+description: A timeboxed investigation. The deliverable is an answer, not a change.
+title: "Spike: "
+labels: ["spike"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A spike buys information. It is done when the question is answered — including when the
+        answer is "we could not find out", which is itself a result worth recording.
+
+        Spikes are pointed and sprinted like stories, but they are never open-ended. If the box
+        runs out, the spike closes with what was learned and a follow-up is filed.
+  - type: input
+    id: parent
+    attributes:
+      label: Parent epic
+      placeholder: "#1833"
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+      description: One question, phrased so that an answer is recognisable when you have it.
+    validations:
+      required: true
+  - type: dropdown
+    id: box
+    attributes:
+      label: Timebox
+      options:
+        - "Half a day"
+        - "One day"
+        - "Two days"
+        - "One week — needs a reason"
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: What decision is waiting on this
+      description: If nothing is waiting on the answer, this is curiosity, not a spike. Say what unblocks.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: What the answer must contain to count
+      description: |
+        e.g. a benchmark number with the command that produced it; a decision between two named
+        options with the evidence for it; a working throwaway prototype and what it proved.
+    validations:
+      required: true
+  - type: textarea
+    id: verify
+    attributes:
+      label: How the answer will be verified on real hardware
+      description: |
+        Dates matter here. A claim is a claim as at its date, not a standing fact. Say which host
+        or rig the answer will be checked against, or say explicitly that it is desk research.
+    validations:
+      required: true

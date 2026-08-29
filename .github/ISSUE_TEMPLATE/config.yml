@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How this backlog is organised
+    url: https://github.com/Thatch-cloud/Thatch.Server/blob/main/docs/governance/agile-playbook.md
+    about: Theme → Epic → Story, the three horizons, the sprint cadence, and which board to use.
+  - name: Thatch - Horizons (portfolio)
+    url: https://github.com/orgs/Thatch-cloud/projects/2
+    about: Every theme, in exactly one of the three horizons.
+  - name: Thatch - Programme (themes and epics)
+    url: https://github.com/orgs/Thatch-cloud/projects/1
+    about: The superproject board. Epics across every repo, grouped by theme.

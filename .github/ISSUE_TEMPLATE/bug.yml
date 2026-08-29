@@ -1,0 +1,57 @@
+name: Bug
+description: Something is broken. Goes straight onto this repo's delivery board.
+title: ""
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Observed behaviour, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: The exact commands or steps. If it is intermittent, say how often and since when.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Host, cluster, tenant, build SHA, or Portal route — whatever locates it.
+      placeholder: "spark-8c4d, thatch-spine at ad05c1f2"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: |
+        Logs, the failing command's output, a correlation id. Verify on the host rather than
+        describing what you believe the code does.
+      render: shell
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Critical — the fleet or a customer is affected right now
+        - High — a workflow is unusable, no workaround
+        - Medium — a workaround exists
+        - Low — cosmetic or rare
+    validations:
+      required: true
+  - type: input
+    id: parent
+    attributes:
+      label: Parent epic, if this belongs to one
+      placeholder: "#1833"
