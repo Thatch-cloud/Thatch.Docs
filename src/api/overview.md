@@ -36,9 +36,9 @@ and [Errors](errors.md).
 | `GET /v1/models` | The model catalogue available to your key |
 | `GET /v1/usage` | Your own usage, scoped to the calling identity |
 
-<!-- TODO: confirm availability before describing these as live — the serving
-     backend behind /v1/chat/completions was still landing when this page was
-     drafted. Add streaming behaviour, and the request/response shape, from the
+All three endpoints are live.
+
+<!-- TODO: add streaming behaviour, and the request/response shape, from the
      generated reference rather than by hand. -->
 
 Usage figures here are scoped to the caller. Account-wide billing lives in the

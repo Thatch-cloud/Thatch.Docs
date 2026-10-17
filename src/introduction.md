@@ -16,7 +16,7 @@ one bill; the fabric handles placement, health, and residency across the fleet.
 | Understand the moving parts | [Core concepts](getting-started/concepts.md) |
 | Wire up credentials | [Authentication](getting-started/authentication.md) |
 | Read the endpoint reference | [API overview](api/overview.md) |
-| Manage keys, usage, or invoices | [Account & billing](account/accounts.md) |
+| Manage keys, usage, or invoices | [API keys](account/api-keys.md), [Usage & metering](account/usage.md), [Billing & invoices](account/billing.md) |
 | Fix something that's broken | [Troubleshooting](support/troubleshooting.md) |
 
 ## Conventions
