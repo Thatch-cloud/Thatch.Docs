@@ -9,6 +9,4 @@
 
 ## During an incident
 
-1. Check the status page before opening a ticket — it's updated first.
-2. If your problem isn't reflected there, [contact support](contact.md) with your
-   request IDs and timestamps (in UTC).
+1. [Contact support](contact.md) with your request IDs and timestamps (in UTC).

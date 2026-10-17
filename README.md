@@ -93,7 +93,7 @@ under `src/api/reference/`.
 
 **This is not wired to anything yet.** The only contract the control plane emits
 is `portal.openapi.json`, which is the Portal SPA's session-token surface for
-tenant deployments — a different audience from the customers these docs serve.
+organisation deployments — a different audience from the customers these docs serve.
 The customer-facing surface is the OpenAI-compatible serving API
 (`/v1/chat/completions`, `/v1/models`, `/v1/usage`, gated by a `thatch_sk_` API
 key), and nothing emits a contract for it. The server-side fix is a sibling to

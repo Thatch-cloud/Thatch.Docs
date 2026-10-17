@@ -1,8 +1,9 @@
 # Troubleshooting
 
 > [!NOTE]
-> **To be written.** Organise this page by the symptom a customer sees, not by the
-> subsystem at fault — they don't know which subsystem it is.
+> **Partly written.** This page is organised by the symptom a customer sees, not by
+> the subsystem at fault — they don't know which subsystem it is. The sections
+> marked TODO below are the parts still to come.
 
 ## `401 Unauthorized` on every request
 

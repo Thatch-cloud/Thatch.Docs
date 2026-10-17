@@ -8,17 +8,10 @@ independently-owned, heterogeneous machines into one coordinated fabric.
 
 **Fabric** — the pooled fleet presented as a single coordinated region.
 
-**Job** — a unit of submitted work with requirements attached; the scheduler places it
-and it carries a state through to completion. Jobs are how the fabric schedules work
-internally; as a customer you submit requests to the [API](api/overview.md) rather than
-creating jobs directly.
-
 **Node** — one participating machine, running the node agent that registers it, reports
 capacity, health, and power, and executes scheduled work.
 
 **Node agent** — the software running on a node that connects it to the control plane.
-
-**Placement** — the scheduler's decision about which node runs a given job.
 
 **Region** — the jurisdictional boundary work is pinned to. See
 [Data residency](account/residency.md).

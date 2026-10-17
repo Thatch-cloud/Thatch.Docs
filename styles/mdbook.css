@@ -6,7 +6,7 @@
    those at Thatch semantic tokens.
 
    One mapping covers every mdBook theme because the token values beneath
-   it switch mode themselves: theme-sync.js mirrors mdBook's theme class
+   it switch mode themselves: theme/head.hbs mirrors mdBook's theme class
    onto html[data-theme], which is what semantic.css keys off. Add a mode
    there, not here.
 
