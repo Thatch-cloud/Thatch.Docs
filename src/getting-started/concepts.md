@@ -2,39 +2,50 @@
 
 The vocabulary below is used consistently throughout these docs and in the Portal.
 
-## The fabric
+## Organisation
 
-Thatch is a **decentralised distributed data center**: a fleet of independently-owned
-machines — in substations, towers, and homes — presented as one coordinated region.
-Nodes are not assumed to be trustworthy; the control plane is what makes the pooled
-result dependable.
+Everything you do on Thatch belongs to an organisation: its members, its API
+keys, its usage, and its bill. One login can belong to several organisations.
+See [Accounts & organisations](../account/accounts.md).
 
-## Node
+## API key
 
-A single participating machine. Each node runs an agent that registers it, reports its
-capacity, health, and power, and executes the work scheduled onto it. Nodes are
-heterogeneous: they differ in architecture, accelerators, and available resources.
+The credential your code uses to call the API. A key belongs to an
+organisation, and every request made with it is metered to that organisation.
+See [Authentication](authentication.md) and [API keys](../account/api-keys.md).
 
-## Control plane
+## Portal
 
-The coordinating layer. It owns registration, scheduling and routing, billing, and
-residency enforcement. As a customer you only ever talk to the control plane's API —
-never to a node directly.
+The web app at <https://app.thatch.cloud> where members sign in to manage keys,
+members, usage and billing. The Portal is for people; the API is for code.
 
-## Job
+## Model
 
-A unit of submitted work, with requirements attached (what it needs to run on). The
-scheduler decides placement; the job then carries a state and, on completion, an exit
-result.
+A model Thatch serves, identified by its `id`. A model is either a **chat**
+model, for [chat completions](../api/chat-completions.md), or an **embedding**
+model, for [embeddings](../api/embeddings.md). The models being served right now
+are listed by [`GET /v1/models`](../api/models.md).
 
-Jobs are how the fabric schedules work internally. You do not create them directly:
-you call the [API](../api/overview.md), and the control plane turns that into placed
-work on a node that satisfies the requirements.
+## How a request is served
+
+Your code sends a request to the API at `api.thatch.cloud`. Thatch's **control
+plane** — the coordinating layer behind the API — authenticates it, checks your
+limits, and sends it to a machine in Thatch's fleet that is currently serving
+the model you asked for. The response comes back the same way, and the tokens
+it used are metered to your organisation.
+
+You call the API; Thatch decides which machine serves each request. If no
+machine serving that model can take the request, the API answers with an error
+you can retry — see [Errors](../api/errors.md).
+
+## Tokens and usage
+
+Models read and write text as **tokens** — fragments of words. Every request
+reports the tokens it used, and usage is metered on them. See
+[Usage & metering](../account/usage.md).
 
 ## Region and residency
 
-Work is pinned to a region so data stays inside the jurisdiction you selected. See
+Each model in [`GET /v1/models`](../api/models.md) carries a `region` label. What
+Thatch commits to about where your data is processed is on
 [Data residency](../account/residency.md).
-
-<!-- TODO: expand each section once the public API's object model is frozen; add a
-     diagram of request → control plane → node → response. -->

@@ -95,10 +95,12 @@ under `src/api/reference/`.
 is `portal.openapi.json`, which is the Portal SPA's session-token surface for
 organisation deployments — a different audience from the customers these docs serve.
 The customer-facing surface is the OpenAI-compatible serving API
-(`/v1/chat/completions`, `/v1/models`, `/v1/usage`, gated by a `thatch_sk_` API
-key), and nothing emits a contract for it. The server-side fix is a sibling to
-`emit_portal_openapi.rs` covering the serving routes; the moment that artifact
-exists, the two commands above produce the reference.
+(`/v1/chat/completions`, `/v1/responses`, `/v1/completions`, `/v1/embeddings`,
+`/v1/models`, `/v1/usage`, gated by a `thatch_sk_` API key), and nothing emits a
+contract for it. The server-side fix is a sibling to `emit_portal_openapi.rs`
+covering the serving routes; the moment that artifact exists, the two commands
+above produce the reference. Until then the hand-written pages under `src/api/`
+describe the surface — check them against the gateway when it changes.
 
 ### Styling
 
