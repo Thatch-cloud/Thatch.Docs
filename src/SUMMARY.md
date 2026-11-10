@@ -11,6 +11,10 @@
 # API & SDKs
 
 - [API overview](api/overview.md)
+- [Chat completions](api/chat-completions.md)
+- [Embeddings](api/embeddings.md)
+- [Models](api/models.md)
+- [OpenAI compatibility](api/openai-compatibility.md)
 - [Errors](api/errors.md)
 - [Rate limits & quotas](api/limits.md)
 - [SDKs](api/sdks.md)

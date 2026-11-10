@@ -1,25 +1,39 @@
 # Glossary
 
-**Control plane** — the coordinating layer that owns registration, scheduling and
-routing, billing, and residency enforcement. Customers talk only to its API.
+**Admin** — an organisation role that can manage members and every API key in the
+organisation. See [Accounts & organisations](account/accounts.md#roles).
 
-**DDDC** — decentralised distributed data center. The category Thatch is in: pooling
-independently-owned, heterogeneous machines into one coordinated fabric.
+**API key** — the credential code uses to call the API, prefixed `thatch_sk_`. It
+belongs to an organisation. See [API keys](account/api-keys.md).
 
-**Fabric** — the pooled fleet presented as a single coordinated region.
+**Cached input** — prompt tokens served from the model's prompt cache, metered at
+their own rate, currently lower than other input. See [Usage & metering](account/usage.md).
 
-**Node** — one participating machine, running the node agent that registers it, reports
-capacity, health, and power, and executes scheduled work.
+**Control plane** — the coordinating layer behind the API. It authenticates
+requests, applies limits, decides which machine serves each request, and meters
+usage. Customers talk only to its API.
 
-**Node agent** — the software running on a node that connects it to the control plane.
+**Member** — an organisation role that can use the organisation, create API keys,
+and manage the keys they created. See [Accounts & organisations](account/accounts.md#roles).
 
-**Region** — the jurisdictional boundary work is pinned to. See
-[Data residency](account/residency.md).
+**Model ID** — the `id` of a model in [`GET /v1/models`](api/models.md), passed as
+`model` in a request.
 
-**Residency** — the guarantee that work and its data stay inside a chosen region.
+**Node** — one machine in Thatch's fleet, serving one or more models.
 
-**Trust-minimised** — the fleet is coordinated without requiring the individual nodes,
-or their owners, to be trusted.
+**Organisation** — what members, API keys, usage, and billing belong to. One login
+can belong to several. See [Accounts & organisations](account/accounts.md).
+
+**Portal** — the web app at <https://app.thatch.cloud> where members manage their
+organisation.
+
+**Region** — a label on each model in [`GET /v1/models`](api/models.md) naming where
+it is served. See [Data residency](account/residency.md).
+
+**Request ID** — the `x-request-id` header on API responses. Quote it to support.
+
+**Token** — the unit models read and write text in, and the unit usage is metered
+in.
 
 <!-- TODO: keep this list to terms a customer will actually meet in the API, the
      Portal, or a support conversation. Internal crate and service names do not

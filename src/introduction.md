@@ -2,11 +2,12 @@
 
 > [!NOTE]
 > **Draft.** This site is being written alongside the platform. Pages marked
-> _To be written_ are placeholders — the structure is settled, the detail is not.
+> _Partly written_ or _Not yet published_ say what is still to come — what they do
+> say is settled.
 
-**Thatch** pools independently-owned, heterogeneous compute and storage nodes into a
-single coordinated, sovereign-by-region fabric for AI inference. You get one API and
-one bill; the fabric handles placement, health, and residency across the fleet.
+**Thatch** runs AI models on its fleet of machines and serves them through one
+OpenAI-compatible API. You call one API and get one bill; Thatch's control plane
+decides which machine serves each request and keeps the fleet healthy.
 
 ## Where to start
 
@@ -16,6 +17,7 @@ one bill; the fabric handles placement, health, and residency across the fleet.
 | Understand the moving parts | [Core concepts](getting-started/concepts.md) |
 | Wire up credentials | [Authentication](getting-started/authentication.md) |
 | Read the endpoint reference | [API overview](api/overview.md) |
+| Move existing OpenAI code across | [SDKs](api/sdks.md), [OpenAI compatibility](api/openai-compatibility.md) |
 | Manage keys, usage, or invoices | [API keys](account/api-keys.md), [Usage & metering](account/usage.md), [Billing & invoices](account/billing.md) |
 | Fix something that's broken | [Troubleshooting](support/troubleshooting.md) |
 

@@ -1,12 +1,12 @@
 # FAQ
 
 > [!NOTE]
-> **To be written.** Only add a question here once it has actually been asked twice.
+> **Partly written.** Only add a question here once it has actually been asked twice.
 
 ### What is Thatch?
 
-A decentralised distributed data center: independently-owned machines pooled into one
-coordinated, sovereign-by-region fabric for AI inference. See
+An AI inference platform: Thatch runs models on its fleet of machines and serves
+them through one OpenAI-compatible API, with one bill. See
 [Core concepts](../getting-started/concepts.md).
 
 ### Who can see my data?
@@ -16,11 +16,14 @@ coordinated, sovereign-by-region fabric for AI inference. See
 
 ### Where does my work physically run?
 
-Inside the region you selected — see [Data residency](../account/residency.md).
+Thatch has not published residency commitments yet — see
+[Data residency](../account/residency.md). If you need one for a compliance
+decision, ask for it in writing.
 
 ### How am I billed?
 
-See [Usage & metering](../account/usage.md).
+Monthly, in arrears, for the tokens your organisation's requests use. See
+[Usage & metering](../account/usage.md) and [Billing & invoices](../account/billing.md).
 
 ### Can I run Thatch on my own hardware / contribute a node?
 
